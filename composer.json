@@ -1,0 +1,17 @@
+{
+    "name": "halawany/testing",
+    "autoload-dev": {
+        "psr-4": {
+            "Halawany\\Testing\\": "src/"
+        }
+    },
+
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
