@@ -7,24 +7,25 @@ use App\TagParser;
 
 class TagParserTest extends TestCase{
 
+    protected $expected = ['PHP', 'C#', 'R', 'Python'];
+
     /**
      * @dataProvider tagsProvider
      */
-    public function test_it_can_parse($input, $expected)
+    public function test_it_can_parse($input)
     {
         $result = TagParser::parse($input);
-        $this->assertSame($expected, $result);
+        $this->assertSame($this->expected, $result);
     }
 
     public function tagsProvider()
     {
         return [
-            ['PHP,C#,R,Python', ['PHP', 'C#', 'R', 'Python']],
-            ['PHP, C#, R, Python', ['PHP', 'C#', 'R', 'Python']],
-            ['PHP|C#|R|Python', ['PHP', 'C#', 'R', 'Python']],
-            ['PHP | C# | R | Python', ['PHP', 'C#', 'R', 'Python']],
-            ['PHP ! C# ! R ! Python', ['PHP', 'C#', 'R', 'Python']],
-
+            ['PHP,C#,R,Python'],
+            ['PHP, C#, R, Python'],
+            ['PHP|C#|R|Python'],
+            ['PHP | C# | R | Python'],
+            ['PHP ! C# ! R ! Python'],
         ];
     }
 }
